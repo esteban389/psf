@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css-reset.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>PSF - Promotora de Servicios Financieros</title>
+    <meta
+      name="description"
+      content="PSF Promotora de Servicios Financieros, Proveemos outsourcing de
+            vanguardia en servicios financieros, destacando por nuestra
+            capacidad para empoderar a colaboradores y ejecutivos, guiándolos
+            haci el logro efecctivo de sus metas"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="icon" href="/Assets/short-logo PSF-02.png" />
+  </head>
+  <body>
+    <header class="header">
+      <a href="/" class="icon">
+        <image src="Assets/short-logo PSF-02.png" alt="logo" />
+      </a>
+      <nav class="nav desktop">
+        <a href="#aliados" class="hover-underline-animation">Alianzas</a>
+        <a href="#planificacion" class="hover-underline-animation"
+          >Planificación</a
+        >
+        <a href="#como" class="hover-underline-animation">Método</a>
+        <a href="#equipo" class="hover-underline-animation">Equipo PSF</a>
+        <a href="#acerca" class="hover-underline-animation">Sobre PSF</a>
+      </nav>
+      <button class="btn btn-outlined desktop">Únete</button>
+
+      <button class="burger-btn" aria-label="Toggle navigation">☰</button>
+      <div class="nav-container">
+        <nav class="nav">
+          <a href="#aliados">Alianzas</a>
+          <a href="#planificacion">Planificación</a>
+          <a href="#como">Método</a>
+          <a href="#equipo">Equipo PSF</a>
+          <a href="#acerca">Sobre PSF</a>
+        </nav>
+        <button class="btn btn-outlined">Únete</button>
+      </div>
+    </header>
+    <main>
+      <section id="hero" class="hero">
+        <div>
+          <h1>Empoderando tu <mark>futuro</mark> financiero</h1>
+          <p>
+            Soluciones personalizadas en servicios financieros de vanguardia
+          </p>
+          <button class="btn btn-filled">Escríbenos</button>
+        </div>
+        <img
+          class="desktop"
+          src="Assets/business-3d_4x-nobg.png"
+          alt="3D illustration of business man"
+        />
+      </section>
+      <section class="conocenos">
+        <h2>Accede a Nuestros Socios Estratégicos</h2>
+        <div class="content">
+          <div class="item">
+            <img src="/Assets/logo PSF-03.png" alt="PSF" />
+            <div>
+              <ul>
+                <li>
+                  Libranza sector no bancario (Reportados de sector oficial,
+                  pensionados, docentes)
+                </li>
+                <li>Libranza sector bancario</li>
+                <li>Consumo</li>
+                <li>Compra de cartera</li>
+                <li>Saneamientos</li>
+              </ul>
+            </div>
+          </div>
+          <div class="item">
+            <img src="/Assets/Tunaveco_logo-2.png" alt="Tunave co" />
+            <div>
+              <ul>
+                <li>Compra de vehículos</li>
+                <li>Venta de vehículos</li>
+                <li>Retoma de vehículos</li>
+                <li>Consignación de vehículos para venta</li>
+              </ul>
+            </div>
+          </div>
+          <div class="item">
+            <img src="/Assets/logo-estrategica-completo.png" alt="Ban100" />
+            <div>
+              <ul>
+                <li>Vida</li>
+                <li>Vehículo</li>
+                <li>Hogar</li>
+                <li>Todo riesgo</li>
+                <li>Endosos</li>
+                <li>Enfermedades</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <script>
+          const content = document.querySelector(".conocenos .content");
+          content.addEventListener("click", (event) => {
+            let target = event.target;
+            if (
+              target.tagName === "IMG" ||
+              !target.classList.contains("item")
+            ) {
+              target = target.closest(".item");
+              console.log();
+            }
+            target.classList.toggle("active");
+          });
+          document.addEventListener("click", (event) => {
+            if (!content.contains(event.target)) {
+              let active = content.getElementsByClassName("active").item(0);
+              active?.classList.toggle("active");
+            }
+          });
+        </script>
+      </section>
+      <section class="aliados" id="aliados">
+        <h2>Unidos por la Excelencia Financiera</h2>
+        <div class="images">
+          <img src="/Assets/banco-union.png" alt="Banco union" />
+          <img src="/Assets/ban100-nobg.png" alt="Ban100" />
+          <img src="/Assets/banco-av-villas-nobg.png" alt="Banco Av Villas" />
+          <img src="/Assets/juriscorp-nobg.png" alt="Juriscorp" />
+          <img src="/Assets/avista-nobg.png" alt="Avista" />
+          <img src="/Assets/kredit-plus-nobg.png" alt="Kredit plus" />
+        </div>
+      </section>
+
+      <section id="resultados" class="resultados">
+        <h2>Creciendo Juntos con Nuestros Aliados</h2>
+        <div class="graph">
+          <canvas id="myChart"></canvas>
+        </div>
+      </section>
+
+      <section id="planificacion" class="planificacion">
+        <h2>Planeación de Productos</h2>
+        <div class="card-container">
+          <div class="card">
+            <div class="img">
+              <img src="/Assets/planning.jpg" alt="Planeación" />
+            </div>
+            <div class="text">
+              <h3>Planeación</h3>
+              <p>Realizamos un estudio de cada alianza comercial</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="img">
+              <img src="/Assets/marketing.jpg" alt="Marketing" />
+            </div>
+            <div class="text">
+              <h3>Marketing</h3>
+              <p>Divulgación estandarizda sobre métricas dirigidas al aliado</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="img">
+              <img src="/Assets/design.jpg" alt="Diseño" />
+            </div>
+            <div class="text">
+              <h3>Diseño</h3>
+              <p>Coordinación de aplicaciones para la alianza</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="img">
+              <img src="/Assets/strategy.jpg" alt="Estrategia" />
+            </div>
+            <div class="text">
+              <h3>Estrategia</h3>
+              <p>Dirección para dar alcance al cumplimiento de objetivos</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="img">
+              <img src="/Assets/launching.jpg" alt="Lanzamiento" />
+            </div>
+            <div class="text">
+              <h3>Lanzamiento</h3>
+              <p>Implementación del material con equipo definido</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="como" class="como">
+        <div class="section">
+          <div class="text">
+            <h3>Método PSF</h3>
+            <h2>Equipo Experto y Estrategias Claras</h2>
+            <p>
+              Al contar con un Equipo Empresarial altamente preparado no
+              solamente en la actividad comercial sino en las actividades
+              administrativas, de control y mitigación del riesgo PSF ofrece una
+              metodología de trabajo integral que cumple el siguiente modelo:
+            </p>
+          </div>
+          <div class="img desktop">
+            <img
+              src="/Assets/3d-teamwork-and-integration.gif"
+              alt="Trabajo en equipo e integración"
+            />
+          </div>
+        </div>
+        <div class="section">
+          <div class="img desktop">
+            <img
+              src="/Assets/3d-working-together_x4-nobg.png"
+              alt="Personas trabajando juntas"
+            />
+          </div>
+          <div class="card-container">
+            <div class="card">
+              Conocimiento y preparación previa de las metodologías y políticas
+              del ALIADO para el manejo de su Portafolio de productos y
+              servicios
+            </div>
+            <div class="card">
+              Prospección del mercado objetivo y búsqueda de mercado potencial o
+              actual
+            </div>
+            <div class="card">
+              Ofrecimiento y asesoría de los productos y servicios del
+              Portafolio del ALIADO, mediante una estructura comercial
+              desarrollada orientada al logro, mediante acompañamiento de
+              nuestro Staff de Lideres comerciales, quienes velan por la
+              motivación constate del equipo comercial orientado a los objetivos
+              de la entidad aliada.
+            </div>
+          </div>
+        </div>
+        <div class="section">
+          <div class="card-container">
+            <div class="card">
+              Seguimiento y control al cumplimiento de las políticas y
+              procedimientos por parte de la Fuerza de Ventas y demás
+              componentes del proceso.
+            </div>
+            <div class="card">
+              Interacción y retroalimentación permanente con el ALIADO sobre las
+              actividades de promoción de sus productos y servicios.
+            </div>
+            <div class="card">
+              Plan de capacitación constante definido desde la firma del
+              contrato, con el cual buscamos mitigar todos los factores
+              presentes en el desarrollo del negocio.
+            </div>
+          </div>
+          <div class="img desktop">
+            <img
+              src="/Assets/3d-handshake_4x-nobg.png"
+              alt="Apretón de manos"
+            />
+          </div>
+        </div>
+      </section>
+      <section id="equipo" class="equipo">
+        <h2>Conozca Nuestro Equipo</h2>
+        <div class="team">
+          <div class="member">
+            <div class="img">
+              <img
+                src="/Assets/gerente-general.png"
+                alt="Foto gerente general"
+              />
+            </div>
+            <div class="text">
+              <h3>Juan Fernando Hincapié</h3>
+              <p>Gerente General</p>
+            </div>
+          </div>
+          <div class="member">
+            <div class="img">
+              <img
+                src="/Assets/gerente-comercial.png"
+                alt="Foto gerente comercial"
+              />
+            </div>
+            <div class="text">
+              <h3>Alejandro Hincapié</h3>
+              <p>Gerente General</p>
+            </div>
+          </div>
+          <div class="member">
+            <div class="img">
+              <img
+                src="/Assets/gerente-proyectos.png"
+                alt="Foto gerente de proyectos"
+              />
+            </div>
+            <div class="text">
+              <h3>Juan Fernando Hincapié</h3>
+              <p>Gerente General</p>
+            </div>
+          </div>
+          <div class="member">
+            <div class="img">
+              <img
+                src="/Assets/director-operaciones.png"
+                alt="Foto Directora de operaciones"
+              />
+            </div>
+            <div class="text">
+              <h3>Juan Fernando Hincapié</h3>
+              <p>Gerente General</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="acerca" class="acerca">
+        <div>
+          <h2>Acerca de nosotros</h2>
+          <p>
+            PSF Promotora de Servicios Financieros, Proveemos outsourcing de
+            vanguardia en servicios financieros, destacando por nuestra
+            capacidad para empoderar a colaboradores y ejecutivos, guiándolos
+            haci el logro efecctivo de sus metas.
+          </p>
+          <br />
+          <p>
+            Brindamos soluciones efectivas en todas las líneas banca personas:
+            Vivienda, libranza Bancaria, No bancaria, consumo y heículo.
+          </p>
+        </div>
+        <img
+          src="Assets/3d-woman-in-consultations_4x-nobg.png"
+          alt="3D Woman in consultation"
+        />
+      </section>
+    </main>
+
+    <script>
+      // Data for the chart
+      const data = {
+        labels: [
+          "BANCO UNION",
+          "BAN100",
+          "BANCO AV VILLAS",
+          "FINANCIERA JURISCOOP",
+          "AVISTA",
+          "KREDIT PLUS",
+        ],
+        datasets: [
+          {
+            label: "Crecimiento",
+            backgroundColor: "#00ffa0",
+            borderColor: "#00ffa0",
+            data: [14190, 7410, 23040, 42690, 8450, 3920],
+            borderWith: 2,
+            borderRadius: 32,
+            borderSkipped: false,
+          },
+        ],
+      };
+
+      // Configuration options
+      const options = {
+        plugins: {
+          legend: {
+            display: false,
+          },
+        },
+        responsive: true,
+        scales: {
+          x: {
+            grid: {
+              display: false,
+            },
+          },
+        },
+        animation: {
+          duration: 1500,
+          easing: "easeOutQuart",
+        },
+      };
+
+      // Create the chart
+      const ctx = document.getElementById("myChart").getContext("2d");
+      const myChart = new Chart(ctx, {
+        type: "bar",
+        data: data,
+        options: options,
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              // Re-trigger animation
+              myChart.reset(); // reset the chart to initial state
+              myChart.update({
+                duration: 1000,
+                easing: "easeOutBounce",
+              });
+            }
+          });
+        },
+        {
+          threshold: 0.25,
+        }
+      );
+
+      observer.observe(document.getElementById("myChart"));
+    </script>
+    <script>
+      /**
+       * This script adds functionality to a burger button and a navigation container.
+       * When the burger button is clicked, it toggles the visibility of the navigation container.
+       * When a navigation link is clicked, it hides the navigation container.
+       */
+      document.addEventListener("DOMContentLoaded", function () {
+        const burgerBtn = document.querySelector(".burger-btn");
+        const navContainer = document.querySelector(".nav-container");
+
+        document.addEventListener("click", function (event) {
+          if (event.target.closest(".burger-btn")) {
+            navContainer.classList.toggle("show");
+          } else if (event.target.closest(".nav a")) {
+            navContainer.classList.remove("show");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
