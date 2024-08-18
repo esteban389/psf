@@ -11,7 +11,7 @@
   --shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
   --shadow-dark: 0px 0px 12px 6px rgba(0, 0, 0, 0.7);
   scroll-behavior: smooth;
-  font-size: x-large;
+  font-size: large;
 }
 body {
   font-family: "Roboto", sans-serif;
@@ -285,6 +285,7 @@ mark {
   background-color: color-mix(in srgb, var(--secondary), white 80%);
   max-height: 100%;
   padding: 20px;
+  height: 100%;
   border-radius: var(--radious-lg);
   box-shadow: var(--shadow);
   -webkit-box-shadow: var(--shadow);
@@ -344,6 +345,7 @@ mark {
 .conocenos .item:not(.active) div {
   width: 0%;
   opacity: 0;
+  height: 0;
 }
 
 .conocenos .active ~ .item,

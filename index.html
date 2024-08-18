@@ -30,7 +30,7 @@
         <a href="#equipo" class="hover-underline-animation">Equipo PSF</a>
         <a href="#acerca" class="hover-underline-animation">Sobre PSF</a>
       </nav>
-      <button class="btn btn-outlined desktop">Únete</button>
+      <button class="btn btn-outlined desktop whatsapp-btn">Únete</button>
 
       <button class="burger-btn" aria-label="Toggle navigation">☰</button>
       <div class="nav-container">
@@ -41,7 +41,7 @@
           <a href="#equipo">Equipo PSF</a>
           <a href="#acerca">Sobre PSF</a>
         </nav>
-        <button class="btn btn-outlined">Únete</button>
+        <button class="btn btn-outlined whatsapp-btn">Únete</button>
       </div>
     </header>
     <main>
@@ -51,7 +51,7 @@
           <p>
             Soluciones personalizadas en servicios financieros de vanguardia
           </p>
-          <button class="btn btn-filled">Escríbenos</button>
+          <button class="btn btn-filled whatsapp-btn">Escríbenos</button>
         </div>
         <img
           class="desktop"
@@ -135,7 +135,7 @@
         </div>
       </section>
 
-      <section id="resultados" class="resultados">
+      <section id="resultados" class="resultados desktop">
         <h2>Creciendo Juntos con Nuestros Aliados</h2>
         <div class="graph">
           <canvas id="myChart"></canvas>
@@ -420,12 +420,22 @@
       document.addEventListener("DOMContentLoaded", function () {
         const burgerBtn = document.querySelector(".burger-btn");
         const navContainer = document.querySelector(".nav-container");
+        const message =
+          "¡Hola! Me gustaría hacer parte del grupo PSF ¿Cómo puedo obtener más información?";
+        const phone = "+573044623783";
 
         document.addEventListener("click", function (event) {
           if (event.target.closest(".burger-btn")) {
             navContainer.classList.toggle("show");
           } else if (event.target.closest(".nav a")) {
             navContainer.classList.remove("show");
+          }
+          if (event.target.classList.contains("whatsapp-btn")) {
+            console.log("click", phone, message);
+            window.open(
+              `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
+              "_blank"
+            );
           }
         });
       });
