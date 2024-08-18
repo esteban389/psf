@@ -430,7 +430,7 @@
           } else if (event.target.closest(".nav a")) {
             navContainer.classList.remove("show");
           }
-          if (event.target.classList.contains("whatsapp-btn")) {
+          if (event.target?.classList.contains("whatsapp-btn")) {
             console.log("click", phone, message);
             window.open(
               `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,

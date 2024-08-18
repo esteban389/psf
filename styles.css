@@ -245,6 +245,7 @@ mark {
   align-items: center;
   width: 100%;
   height: fit-content;
+  padding: 12px;
   max-height: 300px;
   padding-inline: 40px;
   gap: 20px;
@@ -267,8 +268,11 @@ mark {
   opacity: 0.65;
 }
 .conocenos .item img {
+  width: 100%;
+  height: 200px;
   object-fit: contain;
 }
+
 .conocenos .item li {
   text-align: left;
 }
@@ -285,7 +289,6 @@ mark {
   background-color: color-mix(in srgb, var(--secondary), white 80%);
   max-height: 100%;
   padding: 20px;
-  height: 100%;
   border-radius: var(--radious-lg);
   box-shadow: var(--shadow);
   -webkit-box-shadow: var(--shadow);
@@ -339,13 +342,11 @@ mark {
 
 .conocenos .active {
   opacity: 1;
-  animation: none;
 }
 
 .conocenos .item:not(.active) div {
   width: 0%;
   opacity: 0;
-  height: 0;
 }
 
 .conocenos .active ~ .item,
@@ -561,6 +562,23 @@ img {
   text-align: left;
 }
 @media (max-width: 1024px) {
+  @keyframes expandHeight {
+    from {
+      height: 0%;
+    }
+    to {
+      height: 100%;
+    }
+  }
+
+  @keyframes collapseHeight {
+    from {
+      height: 100%;
+    }
+    to {
+      height: 0%;
+    }
+  }
   .nav-container {
     display: flex;
     height: 0;
@@ -589,7 +607,9 @@ img {
   .desktop {
     display: none !important;
   }
-
+  .conocenos .item:not(.active) div {
+    height: 0;
+  }
   .nav a {
     padding: 10px;
     width: 100%;
@@ -620,6 +640,16 @@ img {
   }
   .resultados .graph {
     padding: 10px;
+  }
+  .conocenos .item {
+    animation: palpitar 1s infinite ease-in-out,
+      expandHeight 350ms ease-in-out forwards;
+  }
+  .conocenos .item:has(~ .active) {
+    animation: collapseHeight 350ms ease-in-out forwards;
+  }
+  .conocenos .content .item img {
+    height: 100%;
   }
   .conocenos .content {
     flex-direction: column;
